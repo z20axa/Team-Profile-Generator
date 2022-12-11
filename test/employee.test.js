@@ -4,8 +4,8 @@ describe("Employee", () => {
     describe("Initialization", () => {
       it("should have an employee constructor", () => {
         // SEET
-        const obj = new Employee();
-        expect(obj instanceof Employee).toEqual(true);
+        const object = new Employee();
+        expect(object instanceof Employee).toEqual(true);
       });
 
       it("should have an employee name", () => {
