@@ -1,64 +1,87 @@
+// variable declarations 
 const Employee = require("../lib/employee");
-
 const test = new Employee("Jared", 1, "jared@fakeemail.com");
 
-
 describe("Employee", () => {
-    describe("Initialization", () => {
-      it("should have an employee constructor", () => {
-        // SEET
-        const object = new Employee();
-        expect(object instanceof Employee).toEqual(true);
-      });
+  describe("Initialization", () => {
+    // positive test
+    it("should have an employee constructor", () => {
+      // arrange
+      const object = new Employee();
 
-      it("should have an employee name", () => {
-        const name = "Jared";
-        // const employeeName = new Employee(name);
-        expect(test.name).toBe(name);
-      });
+      // assert
+      expect(object instanceof Employee).toEqual(true);
+    });
 
-      it("should have an employee ID", () => {
-        const id = 1;
-        // const employeeID = new Employee(id);
-        expect(test.id).toBe(id);
-      });
+    // positive test
+    it("should have an employee name", () => {
+      // arrange
+      const name = "Jared";
 
-      it("should have an employee Email", () => {
-        const email = "jared@fakeemail.com";
-        // const employeeEmail = new Employee(email);
-        expect(test.email).toBe(email);
-      });
-    })
+      // assert
+      expect(test.name).toBe(name);
+    });
 
-    describe("getName", () => {
-      it("should return an employee name", () => {
-        const name = "Jared";
-        // const employeeName = new Employee(name);
-        expect(test.getName()).toBe(name);
-      });
-    })
-    
-    // describe("getId", () => {
-    //   it("should return an employee ID", () => {
-    //     // // SEET
-    //     // const obj = new Employee();
-    //     // expect(obj instanceof Employee).toEqual(true);
-    //   });
-    // })
-        
-    // describe("getEamil", () => {
-    //   it("should return an employee email", () => {
-    //     // // SEET
-    //     // const obj = new Employee();
-    //     // expect(obj instanceof Employee).toEqual(true);
-    //   });
-    // })
-        
-    // describe("getRole", () => {
-    //   it("should return an employee role", () => {
-    //     // // SEET
-    //     // const obj = new Employee();
-    //     // expect(obj instanceof Employee).toEqual(true);
-    //   });
-    // })
+    // positive test
+    it("should have an employee ID", () => {
+      // arrange
+      const id = 1;
+
+      // assert
+      expect(test.id).toBe(id);
+    });
+
+    // positive test
+    it("should have an employee Email", () => {
+      // arrange
+      const email = "jared@fakeemail.com";
+
+      // assert
+      expect(test.email).toBe(email);
+    });
+  })
+
+  // positive test
+  describe("getName", () => {
+    it("should return an employee name", () => {
+      // arrange
+      const name = "Jared";
+
+      // assert
+      expect(test.getName()).toBe(name);
+    });
+  })
+
+  describe("getId", () => {
+    // positive test
+    it("should return an employee ID", () => {
+      // arrange
+      const id = 1;
+
+      // assert
+      expect(test.getId()).toBe(id);
+    });
+  })
+
+  // positive test
+  describe("getEamil", () => {
+    it("should return an employee email", () => {
+      // arrange
+      const email = "jared@fakeemail.com";
+
+      // assert
+      expect(test.getEmail()).toBe(email);
+    });
+  })
+
+  // positive test
+  describe("getRole", () => {
+    it("should return an employee role", () => {
+      // arrange
+      const role = "Employee";
+
+      // assert
+      expect(test.getRole()).toBe(role);
+    });
+  })
 })
