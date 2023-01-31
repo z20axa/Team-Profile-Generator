@@ -1,36 +1,47 @@
+// variable declarations
 const Intern = require("../lib/intern");
-
 const test = new Intern("Jared", 1, "jared@fakeemail.com", "2University");
 
 describe("Intern", () => {
-    describe("Initialization", () => {
-      it("should have an intern constructor", () => {
-        const obj = new Intern();
-        expect(obj instanceof Intern).toEqual(true);
-      });
+  describe("Initialization", () => {
+    // positive test
+    it("should have an intern constructor", () => {
+      // arrange
+      const obj = new Intern();
 
-      it("should have an intern school", () => {
-        const school = "2University";
-        expect(test.school).toBe(school);
-      });
-    })
+      // assert
+      expect(obj instanceof Intern).toEqual(true);
+    });
 
-    // describe("getSchool", () => {
-    //   it("should return an intern school", () => {
-    //     // // SEET
-    //     // const obj = new Employee();
-    //     // expect(obj instanceof Employee).toEqual(true);
-    //   });
-    // })
-        
-    // describe("getRole", () => {
-    //   it("should return an intern role", () => {
-    //     // // SEET
-    //     // const obj = new Employee();
-    //     // expect(obj instanceof Employee).toEqual(true);
-    //   });
-    // })
+    // positive test
+    it("should have an intern school", () => {
+      // arrange
+      const school = "2University";
 
-    
+      // assert
+      expect(test.school).toBe(school);
+    });
+  })
 
+  describe("getSchool", () => {
+    // positive test
+    it("should return an intern school", () => {
+      // arrange
+      const school = "2University";
+
+      // assert
+      expect(test.getSchool()).toBe(school);
+    });
+  })
+
+  describe("getRole", () => {
+    // positive test
+    it("should return an intern role", () => {
+      // arrange 
+      const internRole = "Intern";
+
+      // assert
+      expect(test.getRole()).toBe(internRole);
+    });
+  })
 })
