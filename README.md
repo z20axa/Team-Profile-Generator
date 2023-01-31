@@ -42,6 +42,8 @@ THEN I exit the application, and the HTML is generated
 
 - [Jest package](https://www.npmjs.com/package/jest) 
 
+- [File System 'fs' package](https://node.readthedocs.io/en/latest/api/fs/)
+
 - [Node.js](https://nodejs.org/en/)
 
 ## Walkthrough Video Link
