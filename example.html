@@ -1,59 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    #header-wrapper {
-        background: gray;
-        height: 200px;
-    }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #header-wrapper {
+            background: #2eb778;
+            height: 200px;
+        }
 
-    #main-header {
-        text-align: center;
-        padding-top: 60px;
-        text-decoration: underline;
-    }
+        #main-header {
+            text-align: center;
+            padding-top: 60px;
+            text-decoration: underline;
+            color: white;
+        }
 
-    .box-list{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 95vh;
-      list-style-type: none;
-      margin: 0px;
-      padding: 0px;
-    }
-    .box-blue{
-      background: blue;
-      width: 100px;
-      height: 200px;
-    }
-    .box-red{
-      background: red;
-      width: 100px;
-      height: 200px;
-    }
-    .box-green{
-      background: green;
-      width: 100px;
-      height: 200px;
-    }
-  </style>
+        #main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .main-card {
+            border: solid;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .name-tittle-container {
+            background-color: #2bd2e2;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .employee-info-conatiner {
+            background-color: #a39e9e;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .employee-name, 
+        .employee-tittle,
+        .employee-id,
+        .employee-email,
+        .employee-office,
+        .employee-github,
+        .employee-school {
+            margin: 0px;
+            padding: 0px;
+        }
+
+
+        .box-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 95vh;
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box-blue {
+            background: blue;
+            width: 100px;
+            height: 200px;
+        }
+
+        .box-red {
+            background: red;
+            width: 100px;
+            height: 200px;
+        }
+
+        .box-green {
+            background: green;
+            width: 100px;
+            height: 200px;
+        }
+    </style>
 </head>
 
 <header id="header-wrapper">
-    <h1 id="main-header">My Team</h1> 
+    <h1 id="main-header">My Team</h1>
 </header>
 
-
 <body>
-  <ul class="box-list">
+    <main id="main-container">
+        <div class="main-card">
+            <div class="name-tittle-container">
+                <h2 class="employee-name">Jared</h2>
+                <h2 class="employee-tittle">Manager</h2>
+            </div>
+            <div class="employee-info-conatiner">
+                <h3 class="employee-id">ID: 001</h3>
+                <h3 class="employee-email">Email: manager@myteam.com</h3>
+                <h3 class="employee-office">Office Number: 100</h3>
+            </div>
+        </div>
+        <div class="main-card">
+            <div class="name-tittle-container">
+                <h2 class="employee-name">Alec</h2>
+                <h2 class="employee-tittle">Engineer</h2>
+            </div>
+            <div class="employee-info-conatiner">
+                <h3 class="employee-id">ID: 002</h3>
+                <h3 class="employee-email">Email: engineer1@myteam.com</h3>
+                <h3 class="employee-github">GitHub: alecGitHub</h3>
+            </div>
+        </div>
+        <div class="main-card">
+            <div class="name-tittle-container">
+                <h2 class="employee-name">Grace</h2>
+                <h2 class="employee-tittle">Engineer</h2>
+            </div>
+            <div class="employee-info-conatiner">
+                <h3 class="employee-id">ID: 003</h3>
+                <h3 class="employee-email">Email: engineer2@myteam.com</h3>
+                <h3 class="employee-github">GitHub: graceGitHub</h3>
+            </div>
+        </div>
+        <div class="main-card">
+            <div class="name-tittle-container">
+                <h2 class="employee-name">Tammer</h2>
+                <h2 class="employee-tittle">Engineer</h2>
+            </div>
+            <div class="employee-info-conatiner">
+                <h3 class="employee-id">ID: 004</h3>
+                <h3 class="employee-email">Email: engineer3@myteam.com</h3>
+                <h3 class="employee-github">GitHub: tammerGitHub</h3>
+            </div>
+        </div>
+        <div class="main-card">
+            <div class="name-tittle-container">
+                <h2 class="employee-name">John</h2>
+                <h2 class="employee-tittle">Intern</h2>
+            </div>
+            <div class="employee-info-conatiner">
+                <h3 class="employee-id">ID: 005</h3>
+                <h3 class="employee-email">Email: intern1@myteam.com</h3>
+                <h3 class="employee-school">Schoot: UPenn</h3>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- <ul class="box-list">
     <li class="box-blue"></li>
     <li class="box-red"></li>
     <li class="box-green"></li>
-  </ul>
+  </ul> -->
 </body>
+
 </html>
