@@ -1,11 +1,19 @@
+// packages/modules imports
 const inquirer = require('inquirer');
 const fs = require('fs');
+const Employee = require('./lib/employee');
+const Manager = require('./lib/manager');
+const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern');
 
-const BlueBox = require('./lib/blue-box');
-const RedBox = require('./lib/red-box');
-const GreenBox = require('./lib/green-box');
+// team of employess inital array declaration
+var myTeam = [];
 
-const boxList = [];
+const addManager
+
+const addEngineer
+
+const addIntern 
 
 const addABox = () => {
   return inquirer.prompt([
@@ -34,7 +42,7 @@ const addABox = () => {
   });
 }
 
-const print = () => {
+const writeHTML = () => {
   console.log(boxList);
   let boxData =
   boxList.map( box => {
@@ -48,6 +56,7 @@ const print = () => {
       return `<li class="box-green"></li>`;
     }
   }).join("");
+
   const data = 
 `<!DOCTYPE html>
 <html lang="en">
@@ -96,29 +105,37 @@ const print = () => {
   return menu();
 }
 
+// function declaration to end the program 
 const endProgram = () => {
-  console.log("Buh bye");
+  console.log("Thanks for building your Team, BYE!!!");
   return;
 }
 
-function menu() {
+// function declaration to initiate the app
+function init() {
   return inquirer.prompt([
     {
       type: "list",
-      message: "Pick an option: ",
-      choices: ["Add a box", "Print", "Exit"],
-      name: "option"
+      message: "Start Your Team",
+      choices: ["Add a Manager", "Add an Engineer", "Add an Intern", "Print My Team", "Finish Team Building"],
+      name: "choice"
     }
   ])
-  .then( ({option}) => {
-    switch(option){
-      case "Add a box":
-        return addABox();
-      case "Print":
-        return print();
-      case "Exit":
+  .then( ({choice}) => {
+    switch(choice){
+      case "Add a Manage":
+        return addManager();
+      case "Add an Engineer":
+        return addEngineer();
+      case "Add an Intern":
+        return addIntern();
+      case "Print My Team":
+        return writeHTML();
+      case "Finish Team Building":
         return endProgram();
     }
   });
 }
-menu();
+
+// initiate app
+init();
