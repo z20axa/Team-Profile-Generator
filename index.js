@@ -34,7 +34,7 @@ const init = () => {
     }
   ])
     .then((managerInputs) => {
-      // console.log(managerInputs);
+      console.log(managerInputs);
 
       // deconstruct manager info entered and assign to new variables
       const { managerName, managerId, managerEmail, managerOfficeNumber } = managerInputs;
@@ -95,7 +95,7 @@ const addEngineer = () => {
     }
   ])
     .then((engineerInputs) => {
-      // console.log(engineerInputs);
+      console.log(engineerInputs);
 
       // deconstruct engineer info entered and assign to new variables
       const { engineerName, engineerId, engineerEmail, engineerGithub } = engineerInputs;
@@ -134,7 +134,7 @@ const addIntern = () => {
     }
   ])
     .then((internInputs) => {
-      // console.log(internInputs);
+      console.log(internInputs);
 
       // deconstruct intern info entered and assign to new variables
       const { internName, internId, internEmail, internSchool } = internInputs;
@@ -292,7 +292,7 @@ const writeHTML = (builtTeam) => {
 
 // function declaration to quit the app and generate a webpage that displays the team's basic info entered
 const quitProgram = () => {
-  // console.log(builtTeam);
+  console.log(builtTeam);
   console.log("Happy Team Building, BYE!!!");
   
   // function call to generate a webpage that displays the team's basic info entered
