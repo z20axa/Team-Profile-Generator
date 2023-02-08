@@ -37,10 +37,10 @@ const init = () => {
       console.log(managerInputs);
 
       // descontruct manager info entered and assign to new variables
-      const { manager_name, manager_id, manager_email, manager_officeNumber } = managerInputs;
+      const { managerName, managerId, managerEmail, managerOfficeNumber } = managerInputs;
 
       // add the manager info entered to the team array
-      builtTeam.push(new Manager(manager_name, manager_id, manager_email, manager_officeNumber));
+      builtTeam.push(new Manager(managerName, managerId, managerEmail, managerOfficeNumber));
       console.log(builtTeam);
 
       // after the manager info has been entered to the team, function call to add other team members engineers and/or interns, or quit the app
@@ -98,10 +98,10 @@ const addEngineer = () => {
       console.log(engineerInputs);
 
       // descontruct engineer info entered and assign to new variables
-      const { engineer_name, engineer_id, engineer_email, engineer_Github } = engineerInputs;
+      const { engineerName, engineerId, engineerEmail, engineerGithub } = engineerInputs;
 
       // add the engineer info entered to the team array
-      builtTeam.push(new Engineer(engineer_name, engineer_id, engineer_email, engineer_Github));
+      builtTeam.push(new Engineer(engineerName, engineerId, engineerEmail, engineerGithub));
       console.log(builtTeam);
 
       // function call to return to menu to add other team member engineers and/or interns to the team or quit the app
@@ -137,10 +137,10 @@ const addIntern = () => {
       console.log(internInputs);
 
       // descontruct intern info entered and assign to new variables
-      const { intern_name, intern_id, intern_email, intern_school } = internInputs;
+      const { internName, internId, internEmail, internSchool } = internInputs;
 
       // add the engineer info entered to the team array
-      builtTeam.push(new Intern(intern_name, intern_id, intern_email, intern_school));
+      builtTeam.push(new Intern(internName, internId, internEmail, internSchool));
       console.log(builtTeam);
 
       // function call to return to menu to add other team member engineers and/or interns to the team or quit the app
