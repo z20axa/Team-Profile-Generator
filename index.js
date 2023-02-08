@@ -12,157 +12,157 @@ var builtTeam = [];
 const init = () => {
   // team manager questions/info
   return inquirer.prompt([
-      {
-          type: "input",
-          message: "Enter team manager's name?",
-          name: "managerName"
-      },
-      {
-          type: "input",
-          message: "Enter team manager's ID?",
-          name: "managerId"
-      },
-      {
-          type: "input",
-          message: "Enter team manager's email?",
-          name: "managerEmail"
-      },
-      {
-          type: "input",
-          message: "Enter team manager's office number?",
-          name: "managerOfficeNumber"
-      }
+    {
+      type: "input",
+      message: "Enter team manager's name?",
+      name: "managerName"
+    },
+    {
+      type: "input",
+      message: "Enter team manager's ID?",
+      name: "managerId"
+    },
+    {
+      type: "input",
+      message: "Enter team manager's email?",
+      name: "managerEmail"
+    },
+    {
+      type: "input",
+      message: "Enter team manager's office number?",
+      name: "managerOfficeNumber"
+    }
   ])
-  .then((managerInputs) => {
+    .then((managerInputs) => {
       console.log(managerInputs);
 
       // descontruct manager info entered and assign to new variables
-      const {manager_name, manager_id, manager_email, manager_officeNumber} = managerInputs;
+      const { manager_name, manager_id, manager_email, manager_officeNumber } = managerInputs;
 
       // add the manager info entered to the team array
       builtTeam.push(new Manager(manager_name, manager_id, manager_email, manager_officeNumber));
-      
+
       // after the manager info has been entered to the team, function call to add other team members engineers and/or interns, or quit the app
       otherTeamMembersMenu();
-});
+    });
 };
 
 // function declaration to add other team member engineers and/or interns to the team or quit the app
 function otherTeamMembersMenu() {
   return inquirer.prompt([
-  {
-    type: "list",
-    message: "Add Team Members or Quit App to finish Entering Team Members",
-    choices: ["Add an Engineer to the Team", "Add an Intern to the Team", "Quit Building the Team"],
-    name: "choice"
-  }
-])
-.then( ({choice}) => {
-  switch(choice){
-    case "Add an Engineer to the Team":
-      return addEngineer();
-    case "Add an Intern to the Team":
-      return addIntern();
-    case "Quit Building the Team":
-      return quitProgram();
-  }
-});
+    {
+      type: "list",
+      message: "Add Team Members or Quit App to finish Entering Team Members",
+      choices: ["Add an Engineer to the Team", "Add an Intern to the Team", "Quit Building the Team"],
+      name: "choice"
+    }
+  ])
+    .then(({ choice }) => {
+      switch (choice) {
+        case "Add an Engineer to the Team":
+          return addEngineer();
+        case "Add an Intern to the Team":
+          return addIntern();
+        case "Quit Building the Team":
+          return quitProgram();
+      }
+    });
 };
 
 // function declaration to add an engineer to the team
 const addEngineer = () => {
   return inquirer.prompt([
-      {
-          type: "input",
-          message: "What is the engineers's name?",
-          name: "engineerName"
-      },
-      {
-          type: "input",
-          message: "What is the engineer's ID?",
-          name: "engineerId"
-      },
-      {
-          type: "input",
-          message: "What is the engineers's email address?",
-          name: "engineerEmail"
-      },
-      {
-          type: "input",
-          message: "What is the engineers's GitHub username?",
-          name: "engineerGithub"
-      }
+    {
+      type: "input",
+      message: "What is the engineers's name?",
+      name: "engineerName"
+    },
+    {
+      type: "input",
+      message: "What is the engineer's ID?",
+      name: "engineerId"
+    },
+    {
+      type: "input",
+      message: "What is the engineers's email address?",
+      name: "engineerEmail"
+    },
+    {
+      type: "input",
+      message: "What is the engineers's GitHub username?",
+      name: "engineerGithub"
+    }
   ])
-  .then((engineerInputs) => {
+    .then((engineerInputs) => {
       console.log(engineerInputs);
 
       // descontruct engineer info entered and assign to new variables
-      const {engineer_name, engineer_id, engineer_email, engineer_Github} = engineerInputs;
+      const { engineer_name, engineer_id, engineer_email, engineer_Github } = engineerInputs;
 
       // add the engineer info entered to the team array
       builtTeam.push(new Engineer(engineer_name, engineer_id, engineer_email, engineer_Github));
-      
+
       // function call to return to menu to add other team member engineers and/or interns to the team or quit the app
       otherTeamMembersMenu();
-})
+    })
 };
 
 // function declaration to add an intern to the team
 const addIntern = () => {
   return inquirer.prompt([
-      {
-          type: "input",
-          message: "What is the intern's name?",
-          name: "internName"
-      },
-      {
-          type: "input",
-          message: "What is the intern's ID?",
-          name: "internId"
-      },
-      {
-          type: "input",
-          message: "What is the intern's email address?",
-          name: "internEmail"
-      },
-      {
-          type: "input",
-          message: "What is the intern's school name?",
-          name: "internSchool"
-      }
+    {
+      type: "input",
+      message: "What is the intern's name?",
+      name: "internName"
+    },
+    {
+      type: "input",
+      message: "What is the intern's ID?",
+      name: "internId"
+    },
+    {
+      type: "input",
+      message: "What is the intern's email address?",
+      name: "internEmail"
+    },
+    {
+      type: "input",
+      message: "What is the intern's school name?",
+      name: "internSchool"
+    }
   ])
-  .then((internInputs) => {
+    .then((internInputs) => {
       console.log(internInputs);
 
       // descontruct intern info entered and assign to new variables
-      const {intern_name, intern_id, intern_email, intern_school} = internInputs;
+      const { intern_name, intern_id, intern_email, intern_school } = internInputs;
 
       // add the engineer info entered to the team array
       builtTeam.push(new Intern(intern_name, intern_id, intern_email, intern_school));
-      
+
       // function call to return to menu to add other team member engineers and/or interns to the team or quit the app
       otherTeamMembersMenu();
-})
+    })
 };
 
 const writeHTML = (builtTeam) => {
   console.log(builtTeam);
 
   let teamData =
-  builtTeam.map( teamName => {
-    if(teamName.getName() === "Manager"){
-      return `<li class="box-blue"></li>`;
-    }
-    else if(teamName.getName() === "Engineer"){
-      return `<li class="box-red"></li>`;
-    }
-    else if(teamName.getName() === "Intern"){
-      return `<li class="box-green"></li>`;
-    }
+    builtTeam.map(teamName => {
+      if (teamName.getName() === "Manager") {
+        return `<li class="box-blue"></li>`;
+      }
+      else if (teamName.getName() === "Engineer") {
+        return `<li class="box-red"></li>`;
+      }
+      else if (teamName.getName() === "Intern") {
+        return `<li class="box-green"></li>`;
+      }
     }).join("");
 
-  const data = 
-`<!DOCTYPE html>
+  const outputHTML =
+    `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -198,16 +198,16 @@ const writeHTML = (builtTeam) => {
 </head>
 <body>
   <ul class="box-list">
-    ${boxData}
+    ${teamData}
   </ul>
 </body>
 </html>
 `
-  fs.writeFile("output.html", data, (err) => {
+  fs.writeFile("output.html", outputHTML, (err) => {
     err ? console.error(err) : console.log("Wrote output.html");
   })
-  return menu();
-}
+  return;
+};
 
 // function declaration to quit the app and generate a webpage that displays the team's basic info entered
 const quitProgram = () => {
