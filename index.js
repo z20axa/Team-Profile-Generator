@@ -34,14 +34,14 @@ const init = () => {
     }
   ])
     .then((managerInputs) => {
-      console.log(managerInputs);
+      // console.log(managerInputs);
 
       // deconstruct manager info entered and assign to new variables
       const { managerName, managerId, managerEmail, managerOfficeNumber } = managerInputs;
 
       // add the manager info entered to the team array
       builtTeam.push(new Manager(managerName, managerId, managerEmail, managerOfficeNumber));
-      console.log(builtTeam);
+      // console.log(builtTeam);
 
       // after the manager info has been entered to the team, function call to add other team members engineers and/or interns, or quit the app
       otherTeamMembersMenu();
@@ -95,14 +95,14 @@ const addEngineer = () => {
     }
   ])
     .then((engineerInputs) => {
-      console.log(engineerInputs);
+      // console.log(engineerInputs);
 
       // deconstruct engineer info entered and assign to new variables
       const { engineerName, engineerId, engineerEmail, engineerGithub } = engineerInputs;
 
       // add the engineer info entered to the team array
       builtTeam.push(new Engineer(engineerName, engineerId, engineerEmail, engineerGithub));
-      console.log(builtTeam);
+      // console.log(builtTeam);
 
       // function call to return to menu to add other team member engineers and/or interns to the team or quit the app
       otherTeamMembersMenu();
@@ -134,14 +134,14 @@ const addIntern = () => {
     }
   ])
     .then((internInputs) => {
-      console.log(internInputs);
+      // console.log(internInputs);
 
       // deconstruct intern info entered and assign to new variables
       const { internName, internId, internEmail, internSchool } = internInputs;
 
       // add the engineer info entered to the team array
       builtTeam.push(new Intern(internName, internId, internEmail, internSchool));
-      console.log(builtTeam);
+      // console.log(builtTeam);
 
       // function call to return to menu to add other team member engineers and/or interns to the team or quit the app
       otherTeamMembersMenu();
@@ -292,13 +292,13 @@ const writeHTML = (builtTeam) => {
 
 // function declaration to quit the app and generate a webpage that displays the team's basic info entered
 const quitProgram = () => {
-  console.log(builtTeam);
+  // console.log(builtTeam);
   console.log("Happy Team Building, BYE!!!");
   
   // function call to generate a webpage that displays the team's basic info entered
   writeHTML(builtTeam);
 
-  // quits app return
+  // quits app 
   return;
 };
 
