@@ -113,32 +113,32 @@ const addIntern = () => {
       {
           type: "input",
           message: "What is the intern's name?",
-          name: "engineerName"
+          name: "internName"
       },
       {
           type: "input",
           message: "What is the intern's ID?",
-          name: "engineerId"
+          name: "internId"
       },
       {
           type: "input",
           message: "What is the intern's email address?",
-          name: "engineerEmail"
+          name: "internEmail"
       },
       {
           type: "input",
           message: "What is the intern's school name?",
-          name: "engineerGithub"
+          name: "internSchool"
       }
   ])
-  .then((engineerInputs) => {
-      console.log(engineerInputs);
+  .then((internInputs) => {
+      console.log(internInputs);
 
-      // descontruct engineer info entered and assign to new variables
-      const {engineer_name, engineer_id, engineer_email, engineer_Github} = engineerInputs;
+      // descontruct intern info entered and assign to new variables
+      const {intern_name, intern_id, intern_email, intern_school} = internInputs;
 
       // add the engineer info entered to the team array
-      myTeam.push(new Engineer(engineer_name, engineer_id, engineer_email, engineer_Github));
+      myTeam.push(new Intern(intern_name, intern_id, intern_email, intern_school));
       
       // function call to return to menu to add other team member engineers and/or interns to the team or quit the app
       otherTeamMembersMenu();
