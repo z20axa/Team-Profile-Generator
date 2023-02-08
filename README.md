@@ -52,6 +52,5 @@ THEN I exit the application, and the HTML is generated
 
 ## App Screenshots
 
-<!-- ![Capture1](./utils/public/images/Capture1.PNG)
-![Capture2](./utils/public/images/Capture2.PNG)
-![Capture3](./utils/public/images/Capture3.PNG) -->
+![Capture1](./utils/public/images/Capture1.PNG)
+
