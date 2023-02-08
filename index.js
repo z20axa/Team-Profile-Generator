@@ -6,7 +6,7 @@ const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 
 // team of employees initial array declaration
-var myTeam = [];
+var builtTeam = [];
 
 // initiate the app by first adding the manager and after manager has been added then add other team members; engineers and/or interns 
 const init = () => {
@@ -40,7 +40,7 @@ const init = () => {
       const {manager_name, manager_id, manager_email, manager_officeNumber} = managerInputs;
 
       // add the manager info entered to the team array
-      myTeam.push(new Manager(manager_name, manager_id, manager_email, manager_officeNumber));
+      builtTeam.push(new Manager(manager_name, manager_id, manager_email, manager_officeNumber));
       
       // after the manager info has been entered to the team, function call to add other team members engineers and/or interns, or quit the app
       otherTeamMembersMenu();
@@ -100,7 +100,7 @@ const addEngineer = () => {
       const {engineer_name, engineer_id, engineer_email, engineer_Github} = engineerInputs;
 
       // add the engineer info entered to the team array
-      myTeam.push(new Engineer(engineer_name, engineer_id, engineer_email, engineer_Github));
+      builtTeam.push(new Engineer(engineer_name, engineer_id, engineer_email, engineer_Github));
       
       // function call to return to menu to add other team member engineers and/or interns to the team or quit the app
       otherTeamMembersMenu();
@@ -138,28 +138,28 @@ const addIntern = () => {
       const {intern_name, intern_id, intern_email, intern_school} = internInputs;
 
       // add the engineer info entered to the team array
-      myTeam.push(new Intern(intern_name, intern_id, intern_email, intern_school));
+      builtTeam.push(new Intern(intern_name, intern_id, intern_email, intern_school));
       
       // function call to return to menu to add other team member engineers and/or interns to the team or quit the app
       otherTeamMembersMenu();
 })
 };
 
-const writeHTML = () => {
-  console.log(boxList);
+const writeHTML = (builtTeam) => {
+  console.log(builtTeam);
 
-  let boxData =
-  boxList.map( box => {
-    if(box.getBoxName() === "Blue Box"){
+  let teamData =
+  builtTeam.map( teamName => {
+    if(teamName.getName() === "Manager"){
       return `<li class="box-blue"></li>`;
     }
-    else if(box.getBoxName() === "Red Box"){
+    else if(teamName.getName() === "Engineer"){
       return `<li class="box-red"></li>`;
     }
-    else if(box.getBoxName() === "Green Box"){
+    else if(teamName.getName() === "Intern"){
       return `<li class="box-green"></li>`;
     }
-  }).join("");
+    }).join("");
 
   const data = 
 `<!DOCTYPE html>
@@ -214,7 +214,7 @@ const quitProgram = () => {
   console.log("Happy Team Building, BYE!!!");
 
   // function call to generate a webpage that displays the team's basic info entered
-  writeHTML();
+  writeHTML(builtTeam);
 
   // quits app return
   return;
