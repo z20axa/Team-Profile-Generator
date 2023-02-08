@@ -146,8 +146,6 @@ const addIntern = () => {
 };
 
 const writeHTML = (builtTeam) => {
-  console.log(builtTeam);
-
   // HTML elements to be created to display each team member basic info
   let teamData =
     builtTeam.map((teamMember) => {
@@ -291,8 +289,9 @@ const writeHTML = (builtTeam) => {
 
 // function declaration to quit the app and generate a webpage that displays the team's basic info entered
 const quitProgram = () => {
-  console.log("Happy Team Building, BYE!!!");
-
+  console.log(builtTeam);
+    console.log("Happy Team Building, BYE!!!");
+  
   // function call to generate a webpage that displays the team's basic info entered
   writeHTML(builtTeam);
 
