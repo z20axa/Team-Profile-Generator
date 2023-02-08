@@ -1,12 +1,11 @@
 // packages/modules imports
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Employee = require('./lib/employee');
 const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 
-// team of employess inital array declaration
+// team of employees initial array declaration
 var myTeam = [];
 
 // initiate the app by first adding the manager and after manager has been added then add other team members; engineers and/or interns 
@@ -70,72 +69,85 @@ function otherTeamMembersMenu() {
 });
 };
 
-
-// add an engineer to my team function declaration
+// function declaration to add an engineer to the team
 const addEngineer = () => {
   return inquirer.prompt([
       {
           type: "input",
-          message: "What is  manager's name?",
-          name: "name"
+          message: "What is the engineers's name?",
+          name: "engineerName"
       },
       {
           type: "input",
-          message: "What is the manager's ID?",
-          name: "id"
+          message: "What is the engineer's ID?",
+          name: "engineerId"
       },
       {
           type: "input",
-          message: "What is the manager's email address?",
-          name: "email"
+          message: "What is the engineers's email address?",
+          name: "engineerEmail"
       },
       {
           type: "input",
-          message: "What is the manager's office number?",
-          name: "officeNumber"
+          message: "What is the engineers's GitHub username?",
+          name: "engineerGithub"
       }
   ])
-  .then(answers => {
-      console.log(answers)
-      const {name, id, email, officeNumber} = answers
-      employeeList.push(new Manager(name, id, email, officeNumber))
-      return menu()
+  .then((engineerInputs) => {
+      console.log(engineerInputs);
+
+      // descontruct engineer info entered and assign to new variables
+      const {engineer_name, engineer_id, engineer_email, engineer_Github} = engineerInputs;
+
+      // add the engineer info entered to the team array
+      myTeam.push(new Engineer(engineer_name, engineer_id, engineer_email, engineer_Github));
+      
+      // function call to return to menu to add other team member engineers and/or interns to the team or quit the app
+      otherTeamMembersMenu();
 })
-}
+};
 
-
-
-const addIntern 
-
-const addABox = () => {
+// function declaration to add an intern to the team
+const addIntern = () => {
   return inquirer.prompt([
-    {
-      type: "list",
-      message: "What is the next box type?",
-      choices: ["Blue", "Red", "Green"],
-      name: "box"
-    }
+      {
+          type: "input",
+          message: "What is the intern's name?",
+          name: "engineerName"
+      },
+      {
+          type: "input",
+          message: "What is the intern's ID?",
+          name: "engineerId"
+      },
+      {
+          type: "input",
+          message: "What is the intern's email address?",
+          name: "engineerEmail"
+      },
+      {
+          type: "input",
+          message: "What is the intern's school name?",
+          name: "engineerGithub"
+      }
   ])
-  .then( answers => {
-    // add to box to list
-    switch(answers.box){
-      case "Blue":
-        boxList.push(new BlueBox());
-        break;
-      case "Red":
-        boxList.push(new RedBox());
-        break;
-      case "Green":
-        boxList.push(new GreenBox());
-        break;
-    }
-    // console.log(boxList);
-    menu();
-  });
-}
+  .then((engineerInputs) => {
+      console.log(engineerInputs);
+
+      // descontruct engineer info entered and assign to new variables
+      const {engineer_name, engineer_id, engineer_email, engineer_Github} = engineerInputs;
+
+      // add the engineer info entered to the team array
+      myTeam.push(new Engineer(engineer_name, engineer_id, engineer_email, engineer_Github));
+      
+      // function call to return to menu to add other team member engineers and/or interns to the team or quit the app
+      otherTeamMembersMenu();
+})
+};
 
 const writeHTML = () => {
   console.log(boxList);
+
   let boxData =
   boxList.map( box => {
     if(box.getBoxName() === "Blue Box"){
@@ -197,18 +209,16 @@ const writeHTML = () => {
   return menu();
 }
 
-// function declaration to end the program 
+// function declaration to quit the app and generate a webpage that displays the team's basic info entered
 const quitProgram = () => {
   console.log("Happy Team Building, BYE!!!");
 
-  // 
+  // function call to generate a webpage that displays the team's basic info entered
   writeHTML();
 
+  // quits app return
   return;
-}
-
-
-
+};
 
 // initiate app
 init();
