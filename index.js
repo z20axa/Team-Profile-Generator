@@ -36,7 +36,7 @@ const init = () => {
     .then((managerInputs) => {
       console.log(managerInputs);
 
-      // descontruct manager info entered and assign to new variables
+      // deconstruct manager info entered and assign to new variables
       const { managerName, managerId, managerEmail, managerOfficeNumber } = managerInputs;
 
       // add the manager info entered to the team array
@@ -97,7 +97,7 @@ const addEngineer = () => {
     .then((engineerInputs) => {
       console.log(engineerInputs);
 
-      // descontruct engineer info entered and assign to new variables
+      // deconstruct engineer info entered and assign to new variables
       const { engineerName, engineerId, engineerEmail, engineerGithub } = engineerInputs;
 
       // add the engineer info entered to the team array
@@ -136,7 +136,7 @@ const addIntern = () => {
     .then((internInputs) => {
       console.log(internInputs);
 
-      // descontruct intern info entered and assign to new variables
+      // deconstruct intern info entered and assign to new variables
       const { internName, internId, internEmail, internSchool } = internInputs;
 
       // add the engineer info entered to the team array
