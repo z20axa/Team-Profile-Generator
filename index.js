@@ -148,61 +148,141 @@ const addIntern = () => {
 const writeHTML = (builtTeam) => {
   console.log(builtTeam);
 
+  // HTML elements to be created to display each team member basic info
   let teamData =
-    builtTeam.map(teamName => {
-      if (teamName.getName() === "Manager") {
-        return `<li class="box-blue"></li>`;
+    builtTeam.map((teamMember) => {
+      if (teamMember.getRole() === "Manager") {
+        return `
+        <div class="main-card">
+          <div class="name-tittle-container">
+              <h2 class="employee-name">${teamMember.getName()}</h2>
+              <h2 class="employee-tittle">${teamMember.getRole()}</h2>
+          </div>
+          <div class="employee-info-conatiner">
+              <h3 class="employee-id">ID: ${teamMember.getId()}</h3>
+              <h3 class="employee-email">Email: 
+                <a href="mailto:${teamMember.getEmail()}">${teamMember.getEmail()}</a>
+              </h3>
+              <h3 class="employee-office">Office Number: ${teamMember.getOfficeNumber()}</h3>
+          </div>
+        </div>
+        `;
       }
-      else if (teamName.getName() === "Engineer") {
-        return `<li class="box-red"></li>`;
+      else if (teamName.getRole() === "Engineer") {
+        return `
+        <div class="main-card">
+            <div class="name-tittle-container">
+                <h2 class="employee-name">${teamMember.getName()}</h2>
+                <h2 class="employee-tittle">${teamMember.getRole()}</h2>
+            </div>
+            <div class="employee-info-conatiner">
+                <h3 class="employee-id">ID: ${teamMember.getId()}</h3>
+                <h3 class="employee-email">Email: 
+                    <a href="mailto:${teamMember.getEmail()}">${teamMember.getEmail()}</a>
+                </h3>
+                <h3 class="employee-github">GitHub: 
+                    <a href="https://www.github.com/${teamMember.getGithub()}">${teamMember.getGithub()}</a>
+                </h3>
+            </div>
+        </div>
+        `;
       }
-      else if (teamName.getName() === "Intern") {
-        return `<li class="box-green"></li>`;
+      else if (teamName.getRole() === "Intern") {
+        return `
+        <div class="main-card">
+          <div class="name-tittle-container">
+            <h2 class="employee-name">${teamMember.getName()}</h2>
+            <h2 class="employee-tittle">${teamMember.getRole()}</h2>
+          </div>
+          <div class="employee-info-conatiner">
+            <h3 class="employee-id">ID: ${teamMember.getId()}</h3>
+            <h3 class="employee-email">Email: 
+              <a href="mailto:${teamMember.getEmail()}">${teamMember.getEmail()}</a>
+            </h3>
+            <h3 class="employee-school">School: ${teamMember.getSchool()}</h3>
+          </div>
+        </div>
+        `;
       }
     }).join("");
 
+  // out HTML that will be created to display the team members info
   const outputHTML =
-    `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    .box-list{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 95vh;
-      list-style-type: none;
-      margin: 0px;
-      padding: 0px;
-    }
-    .box-blue{
-      background: blue;
-      width: 100px;
-      height: 200px;
-    }
-    .box-red{
-      background: red;
-      width: 100px;
-      height: 200px;
-    }
-    .box-green{
-      background: green;
-      width: 100px;
-      height: 200px;
-    }
-  </style>
-</head>
-<body>
-  <ul class="box-list">
-    ${teamData}
-  </ul>
-</body>
-</html>
+    `
+  <!DOCTYPE html>
+  <html lang="en">
+  
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>My Team</title>
+      <style>
+          #header-wrapper {
+              background: #2eb778;
+              height: 200px;
+          }
+  
+          #main-header {
+              text-align: center;
+              padding-top: 60px;
+              text-decoration: underline;
+              color: white;
+          }
+  
+          #main-container {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-wrap: wrap;
+              padding-left: 200px;
+              padding-right: 200px;
+          }
+  
+          .main-card {
+              border: solid;
+              padding: 10px;
+              margin: 10px;
+          }
+  
+          .name-tittle-container {
+              background-color: #2bd2e2;
+              margin: 0px;
+              padding: 0px;
+          }
+  
+          .employee-info-conatiner {
+              background-color: #a39e9e;
+              margin: 0px;
+              padding: 0px;
+          }
+  
+          .employee-name,
+          .employee-tittle,
+          .employee-id,
+          .employee-email,
+          .employee-office,
+          .employee-github,
+          .employee-school {
+              margin: 0px;
+              padding: 0px;
+          }
+      </style>
+  </head>
+  
+  <header id="header-wrapper">
+      <h1 id="main-header">My Team</h1>
+  </header>
+  
+  <body>
+      <main id="main-container">
+        ${teamData}
+      </main>
+  </body>
+  
+  </html>
 `
+  // writing the HTML file to display the team members info
   fs.writeFile("output.html", outputHTML, (err) => {
     err ? console.error(err) : console.log("Wrote output.html");
   })
