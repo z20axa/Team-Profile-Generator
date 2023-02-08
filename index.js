@@ -41,6 +41,7 @@ const init = () => {
 
       // add the manager info entered to the team array
       builtTeam.push(new Manager(manager_name, manager_id, manager_email, manager_officeNumber));
+      console.log(builtTeam);
 
       // after the manager info has been entered to the team, function call to add other team members engineers and/or interns, or quit the app
       otherTeamMembersMenu();
@@ -101,6 +102,7 @@ const addEngineer = () => {
 
       // add the engineer info entered to the team array
       builtTeam.push(new Engineer(engineer_name, engineer_id, engineer_email, engineer_Github));
+      console.log(builtTeam);
 
       // function call to return to menu to add other team member engineers and/or interns to the team or quit the app
       otherTeamMembersMenu();
@@ -139,6 +141,7 @@ const addIntern = () => {
 
       // add the engineer info entered to the team array
       builtTeam.push(new Intern(intern_name, intern_id, intern_email, intern_school));
+      console.log(builtTeam);
 
       // function call to return to menu to add other team member engineers and/or interns to the team or quit the app
       otherTeamMembersMenu();
@@ -166,7 +169,7 @@ const writeHTML = (builtTeam) => {
         </div>
         `;
       }
-      else if (teamName.getRole() === "Engineer") {
+      else if (teamMember.getRole() === "Engineer") {
         return `
         <div class="main-card">
             <div class="name-tittle-container">
@@ -185,7 +188,7 @@ const writeHTML = (builtTeam) => {
         </div>
         `;
       }
-      else if (teamName.getRole() === "Intern") {
+      else if (teamMember.getRole() === "Intern") {
         return `
         <div class="main-card">
           <div class="name-tittle-container">
@@ -290,7 +293,7 @@ const writeHTML = (builtTeam) => {
 // function declaration to quit the app and generate a webpage that displays the team's basic info entered
 const quitProgram = () => {
   console.log(builtTeam);
-    console.log("Happy Team Building, BYE!!!");
+  console.log("Happy Team Building, BYE!!!");
   
   // function call to generate a webpage that displays the team's basic info entered
   writeHTML(builtTeam);
