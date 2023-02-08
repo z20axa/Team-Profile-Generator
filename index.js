@@ -9,9 +9,101 @@ const Intern = require('./lib/intern');
 // team of employess inital array declaration
 var myTeam = [];
 
-const addManager
+// initiate the app by first adding the manager and after manager has been added then add other team members; engineers and/or interns 
+const init = () => {
+  // team manager questions/info
+  return inquirer.prompt([
+      {
+          type: "input",
+          message: "Enter team manager's name?",
+          name: "managerName"
+      },
+      {
+          type: "input",
+          message: "Enter team manager's ID?",
+          name: "managerId"
+      },
+      {
+          type: "input",
+          message: "Enter team manager's email?",
+          name: "managerEmail"
+      },
+      {
+          type: "input",
+          message: "Enter team manager's office number?",
+          name: "managerOfficeNumber"
+      }
+  ])
+  .then((managerInputs) => {
+      console.log(managerInputs);
 
-const addEngineer
+      // descontruct manager info entered and assign to new variables
+      const {manager_name, manager_id, manager_email, manager_officeNumber} = managerInputs;
+
+      // add the manager info entered to the team array
+      myTeam.push(new Manager(manager_name, manager_id, manager_email, manager_officeNumber));
+      
+      // after the manager info has been entered to the team, function call to add other team members engineers and/or interns, or quit the app
+      otherTeamMembersMenu();
+});
+};
+
+// function declaration to add other team member engineers and/or interns to the team or quit the app
+function otherTeamMembersMenu() {
+  return inquirer.prompt([
+  {
+    type: "list",
+    message: "Add Team Members or Quit App to finish Entering Team Members",
+    choices: ["Add an Engineer to the Team", "Add an Intern to the Team", "Quit Building the Team"],
+    name: "choice"
+  }
+])
+.then( ({choice}) => {
+  switch(choice){
+    case "Add an Engineer to the Team":
+      return addEngineer();
+    case "Add an Intern to the Team":
+      return addIntern();
+    case "Quit Building the Team":
+      return quitProgram();
+  }
+});
+};
+
+
+// add an engineer to my team function declaration
+const addEngineer = () => {
+  return inquirer.prompt([
+      {
+          type: "input",
+          message: "What is  manager's name?",
+          name: "name"
+      },
+      {
+          type: "input",
+          message: "What is the manager's ID?",
+          name: "id"
+      },
+      {
+          type: "input",
+          message: "What is the manager's email address?",
+          name: "email"
+      },
+      {
+          type: "input",
+          message: "What is the manager's office number?",
+          name: "officeNumber"
+      }
+  ])
+  .then(answers => {
+      console.log(answers)
+      const {name, id, email, officeNumber} = answers
+      employeeList.push(new Manager(name, id, email, officeNumber))
+      return menu()
+})
+}
+
+
 
 const addIntern 
 
@@ -106,36 +198,17 @@ const writeHTML = () => {
 }
 
 // function declaration to end the program 
-const endProgram = () => {
-  console.log("Thanks for building your Team, BYE!!!");
+const quitProgram = () => {
+  console.log("Happy Team Building, BYE!!!");
+
+  // 
+  writeHTML();
+
   return;
 }
 
-// function declaration to initiate the app
-function init() {
-  return inquirer.prompt([
-    {
-      type: "list",
-      message: "Start Your Team",
-      choices: ["Add a Manager", "Add an Engineer", "Add an Intern", "Print My Team", "Finish Team Building"],
-      name: "choice"
-    }
-  ])
-  .then( ({choice}) => {
-    switch(choice){
-      case "Add a Manage":
-        return addManager();
-      case "Add an Engineer":
-        return addEngineer();
-      case "Add an Intern":
-        return addIntern();
-      case "Print My Team":
-        return writeHTML();
-      case "Finish Team Building":
-        return endProgram();
-    }
-  });
-}
+
+
 
 // initiate app
 init();
