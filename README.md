@@ -48,7 +48,7 @@ THEN I exit the application, and the HTML is generated
 
 ## Walkthrough Video Link
 
-- Please follow [THIS LINK!](https://drive.google.com/file/d/1BRLcbLIIPspX_B1cVO1bgb25c-X-gjPc/view)
+- Please follow [THIS LINK!](https://www.loom.com/share/966a1a04ab0f49659c1fa0ae3778a471)
 
 ## App Screenshots
 
